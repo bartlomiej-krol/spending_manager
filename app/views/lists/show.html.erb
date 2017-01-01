@@ -1,0 +1,128 @@
+<h3><strong><%= @list.name %></strong></h3>
+
+
+ 
+
+<%= link_to 'Nowa pozycja', new_list_expense_path(:list_id => @list.id ) %>
+
+
+  <% if !@list_paid_expenses.empty? %>
+  <div class="col-md-12">
+    <h5><strong>Opłacone</strong></h5>
+    <div class="col-md-12">
+      <div class="col-md-2">Nazwa</div>
+      <div class="col-md-2">Kwota</div>
+      <div class="col-md-2">Data</div>
+      <div class="col-md-2">Powtarzany co</div>
+      <div class="col-md-4">Opis</div>
+    </div>
+   
+    <% @list_paid_expenses.each do |expense| %>
+      <div class="col-md-12">
+        <div class="col-md-2"><%= link_to expense.title, list_expense_path(:id => expense.id, :list_id => @list.id ) %></div>
+        <div class="col-md-2"><%= expense.amount %></div>
+        <div class="col-md-2">
+          <% if expense.date.present? %>
+          <%= expense.date.strftime("%Y-%m-%d") %>
+          <% end %>
+        </div>
+        <div class="col-md-2">
+          <% if expense.repeatable? %>
+            <% ris = Expense::REPEAT_INTERVALS.select{|ri| ri[:val] == expense.repeat_interval}.first %>
+            <% if ris %>
+              <%= ris[:text] %>
+            <% else %>
+              <%= expense.repeat_interval %>
+            <% end %>
+          <% else %>
+              ---
+          <% end %>
+        </div>
+        <div class="col-md-4"><%= expense.description %></div>
+      </div>
+    <% end %>
+  </div> 
+  <% end %>
+
+
+
+  <% if !@list_not_paid_expenses.empty? %>
+  <div class="col-md-12">
+    <h5><strong>Nieopłacone</strong></h5>
+    <div class="col-md-12">
+      <div class="col-md-2">Nazwa</div>
+      <div class="col-md-2">Kwota</div>
+      <div class="col-md-2">Data</div>
+      <div class="col-md-2">Powtarzany co</div>
+      <div class="col-md-4">Opis</div>
+    </div>
+   
+    <% @list_not_paid_expenses.each do |expense| %>
+      <div class="col-md-12">
+        <div class="col-md-2"><%= link_to expense.title, list_expense_path(:id => expense.id, :list_id => @list.id ) %></div>
+        <div class="col-md-2"><%= expense.amount %></div>
+        <div class="col-md-2">
+          <% if expense.date.present? %>
+          <%= expense.date.strftime("%Y-%m-%d") %>
+          <% end %>
+        </div>
+        <div class="col-md-2">
+          <% if expense.repeatable? %>
+            <% ris = Expense::REPEAT_INTERVALS.select{|ri| ri[:val] == expense.repeat_interval}.first %>
+            <% if ris %>
+              <%= ris[:text] %>
+            <% else %>
+              <%= expense.repeat_interval %>
+            <% end %>
+          <% else %>
+              ---
+          <% end %>
+        </div>
+        <div class="col-md-4"><%= expense.description %></div>
+      </div>
+    <% end %>
+  </div> 
+  <% end %>
+
+
+
+  <% if !@list_other_expenses.empty? %>
+  <div class="col-md-12">
+    <h5><strong>Inne</strong></h5>
+    <div class="col-md-12">
+      <div class="col-md-2">Nazwa</div>
+      <div class="col-md-2">Kwota</div>
+      <div class="col-md-2">Data</div>
+      <div class="col-md-2">Powtarzany co</div>
+      <div class="col-md-4">Opis</div>
+    </div>
+   
+    <% @list_other_expenses.each do |expense| %>
+      <div class="col-md-12">
+        <div class="col-md-2"><%= link_to expense.title, list_expense_path(:id => expense.id, :list_id => @list.id ) %></div>
+        <div class="col-md-2"><%= expense.amount %></div>
+        <div class="col-md-2">
+          <% if expense.date.present? %>
+          <%= expense.date.strftime("%Y-%m-%d") %>
+          <% end %>
+        </div>
+        <div class="col-md-2">
+          <% if expense.repeatable? %>
+            <% ris = Expense::REPEAT_INTERVALS.select{|ri| ri[:val] == expense.repeat_interval}.first %>
+            <% if ris %>
+              <%= ris[:text] %>
+            <% else %>
+              <%= expense.repeat_interval %>
+            <% end %>
+          <% else %>
+              ---
+          <% end %>
+        </div>
+        <div class="col-md-4"><%= expense.description %></div>
+      </div>
+    <% end %>
+  </div>
+  <% end %>
+
+
+<%= link_to '<-Back', lists_path %>

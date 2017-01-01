@@ -1,0 +1,44 @@
+<h1>Nowa pozycja</h1>
+
+<%= form_for :expense, url: list_expense_path(:id => @expense.id, :list_id => @list.id), method: :patch do |f| %>
+  <p>
+    <%= f.label :Nazwa %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :Kwota %><br>
+    <%= f.text_field :amount %>
+  </p>
+  <p>
+    <%= f.label :status, 'Status' %><br>
+    <%= f.radio_button :status, 'paid', :checked => true %> 
+    <%= f.label :status_paid, 'Opłacone' %>
+    <%= f.radio_button :status, 'not-paid' %>
+    <%= f.label :status_not_paid, 'Planowane' %>
+  </p>
+  <p>
+    <%= f.label :Data %><br>
+    <%= f.date_select :date %>
+  </p>
+  <p>
+    <%= f.label :repeatable, 'Powtarzalny' %><br>
+    <%= f.radio_button :repeatable, false, :checked => true %> 
+    <%= f.label :repeatable_no, 'Nie' %>
+    <%= f.radio_button :repeatable, true %>
+    <%= f.label :repeatable_yes, 'Tak' %>
+  </p>
+  <p>
+    <%= f.label :repeat_interval, 'Powtarzany co' %><br>
+    <%= f.select :repeat_interval, Expense::REPEAT_INTERVALS.map{ |c| [c[:text], c[:val]] } %> 
+  </p>
+  <p>
+    <%= f.label :Opis %><br>
+    <%= f.text_area :description %>
+  </p>
+ 
+  <p>
+    <%= f.submit :Zapisz %>
+  </p>
+<% end %>
+
+<%= link_to '<-Back', list_path(:id => @list.id) %>

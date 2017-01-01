@@ -1,0 +1,18 @@
+<h1>Listing spendings</h1>
+
+<%= link_to '<--BACK', controller: 'welcome' %>
+
+
+<%= link_to 'Nowa lista', new_list_path %>
+ 
+<table>
+  <tr>
+    <th>Nazwa</th>
+  </tr>
+ 
+  <% @lists.each do |list| %>
+    <tr>
+      <td><%= link_to list.name, {:controller => "lists", :action => "show", :id => list.id } %></td>
+    </tr>
+  <% end %>
+</table>

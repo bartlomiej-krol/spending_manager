@@ -1,0 +1,14 @@
+<h1>Nowa lista</h1>
+
+<%= form_for :list, url: lists_path do |f| %>
+  <p>
+    <%= f.label :Nazwa %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= f.submit :Zapisz %>
+  </p>
+<% end %>
+
+<%= link_to '<-Back', lists_path %>

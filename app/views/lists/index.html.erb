@@ -1,0 +1,21 @@
+<%= link_to '<--Wstecz', controller: 'welcome' %>
+<hr>
+
+ 
+
+      <div class="features-list">
+        <h1>Twoje listy wydatków:</h1>
+        <i class="icon-retweet"></i> <%= link_to 'Nowa lista', new_list_path %>
+<hr>
+        <% if @lists.empty? %>
+          Nie posiadasz obecnie żadnej listy wydatków.
+        <% else %>
+          <%  @lists.each do |list| %>
+                          <div class="slat-3">
+                              <ul >
+                                  <li><i class="icon-list-alt"></i> <%= link_to  "#{list.name} (#{list.expenses.count})", {:controller => "lists", :action => "show", :id => list.id } %></li>
+                              </ul>
+                          </div>
+          <% end %>
+        <% end %>
+    </div>

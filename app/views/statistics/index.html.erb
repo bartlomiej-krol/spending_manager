@@ -1,0 +1,107 @@
+<h1>Statystyki</h1>
+
+		<div class="col-md-12">
+			<h4>Statystyki ogólne:</h4>
+			<div class="col-md-4">		
+				<div class="coll-md-12">
+					Łączna suma wydatków z calego okresu:
+				</div>	
+				<div class="coll-md-12">
+					<%= number_with_precision(@total_sum, precision: 2) %> PLN
+				</div>
+			</div>
+			<div class="col-md-8">		
+				<div class="coll-md-12">
+					Średnie wydatki z calego okresu (pojedyńczy wydatek):
+				</div>	
+				<div class="coll-md-12">
+					<%= number_with_precision(@total_ave, precision: 2) %> PLN
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<h4>Statystyki okresowe:</h4>
+			<div class="col-md-12">		
+				<h5><strong>7</strong> ostatnich dni:</h5>
+				<div class="col-md-2">		
+					<div class="coll-md-12">
+						Suma wydatków:
+					</div>	
+					<div class="coll-md-12">
+						<%= number_with_precision(@sum7, precision: 2) %> PLN
+					</div>
+				</div>
+				<div class="col-md-5">		
+					<div class="coll-md-12">
+						Średnie wydatki (dziennie):
+					</div>	
+					<div class="coll-md-12">
+						<%= number_with_precision(@aved7, precision: 2) %> PLN
+					</div>
+				</div>
+				<div class="col-md-5">		
+					<div class="coll-md-12">
+						Średnie wydatki (pojedyńczy wydatek):
+					</div>	
+					<div class="coll-md-12">
+						<%= number_with_precision(@ave7, precision: 2) %> PLN
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-12">	
+				<h5><strong>30</strong> ostatnich dni:</h5>
+				<div class="col-md-2">		
+					<div class="coll-md-12">
+						Suma wydatków:
+					</div>	
+					<div class="coll-md-12">
+						<%= number_with_precision(@sum30, precision: 2) %> PLN
+					</div>
+				</div>
+				<div class="col-md-5">		
+					<div class="coll-md-12">
+						Średnie wydatki (dziennie):
+					</div>	
+					<div class="coll-md-12">
+						<%= number_with_precision(@aved30, precision: 2) %> PLN
+					</div>
+				</div>
+				<div class="col-md-5">		
+					<div class="coll-md-12">
+						Średnie wydatki (pojedyńczy wydatek):
+					</div>	
+					<div class="coll-md-12">
+						<%= number_with_precision(@ave30, precision: 2) %> PLN
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-12">	
+				<h5><strong>Ten miesiąc</strong></h5>
+				<div class="col-md-2">		
+					<div class="coll-md-12">
+						Suma wydatków:
+					</div>	
+					<div class="coll-md-12">
+						<%= number_with_precision(@sumThisMonth, precision: 2) %> PLN
+					</div>
+				</div>
+				<div class="col-md-5">		
+					<div class="coll-md-12">
+						Średnie wydatki (dziennie):
+					</div>	
+					<div class="coll-md-12">
+						<%= number_with_precision(@avedThisMonth, precision: 2) %> PLN
+					</div>
+				</div>
+				<div class="col-md-5">		
+					<div class="coll-md-12">
+						Średnie wydatki (pojedyńczy wydatek):
+					</div>	
+					<div class="coll-md-12">
+						<%= number_with_precision(@aveThisMonth, precision: 2) %> PLN
+					</div>
+				</div>
+			</div>
+		</div>

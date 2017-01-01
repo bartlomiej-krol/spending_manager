@@ -1,0 +1,14 @@
+
+<h1>
+<% if user_signed_in? %>
+Witaj <span class="colored"><%= current_user.name %></span>
+<hr>
+<i class="icon-list-alt"></i><%= link_to 'Listy wydatków', controller: 'lists' %>
+<br>
+<i class="icon-eye-open"></i><%= link_to 'Statystyki', statistics_index_path %>
+<hr>
+
+<% else %>
+Nie jesteś zalogowany! <%= link_to "Zaloguj się", new_user_session_path %> <span class="colored">lub</span> <%= link_to "stwórz nowe konto", new_user_registration_path %>.
+<% end %>
+</h1>

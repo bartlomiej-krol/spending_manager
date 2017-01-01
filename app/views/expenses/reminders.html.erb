@@ -1,0 +1,12 @@
+<hr>
+<h2>Przypomnienia</h2>
+<% @user_reminders_show.each do |reminder| %>
+	<div class="col-md-12 <%= (reminder.reminder_status == 'pending' ? 'bg-colored' : '') %>">		
+		<div class="col-md-6"><h3><strong><%= reminder.title %></strong> (<%= reminder.list.name %>)</h3></div>
+		<div class="col-md-3"><%= link_to 'Pokaż', list_expense_path(:id => reminder.id, :list_id => reminder.list_id) %></div>
+		<div class="col-md-3"><%= link_to 'Edytuj', edit_list_expense_path(:id => reminder.id, :list_id => reminder.list_id) %></div>
+	</div>
+<% end %>
+
+
+<hr>

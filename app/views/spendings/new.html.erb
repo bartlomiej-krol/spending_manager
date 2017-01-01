@@ -1,0 +1,19 @@
+<h1>New spending</h1>
+
+<%= form_for :spending, url: spendings_path do |f| %>
+  <p>
+    <%= f.label :spending_name %><br>
+    <%= f.text_field :spending_name %>
+  </p>
+ 
+  <p>
+    <%= f.label :value %><br>
+    <%= f.number_field :value %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', spendings_path %>

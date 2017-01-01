@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Menedżer wydatków</title>
+  <%= stylesheet_link_tag    'bootstrap.min', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'bootstrap-theme.min', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <style type="text/css">
+  	body {
+  		background-image: url("/images/body-bg.jpg");
+  	}
+  	.navbar {
+  		background-image: url("/images/navbar-bg.png");
+  		height: 25px;
+  		position: fixed;
+  		width: 100%;
+  		left: 0px;
+  		top: 0px;
+  	}
+  	.body {
+  		position: relative;
+  	}
+  	.content {
+  		background-color: #fafafa;
+  		min-height: 80vh;
+  		height: 100%;
+  		padding: 12px 12px 12px 12px;
+  		border-radius: 20px;
+  		margin-right: 15%;
+  		margin-left: 15%;
+  		margin-top: 7%;
+  		margin-bottom: 5%;
+  	}
+  </style>
+</head>
+<body>
+
+	<div class="body">
+		<div class="header">
+			<div class="navbar">
+				<% if user_signed_in? %>
+					<div class="nav-item col-md-1 pull-right" ><%= link_to 'Wyloguj', destroy_user_session_path, :method => :delete %></div>
+					<div class="nav-item col-md-1 pull-right" ><%= link_to 'Profil', edit_user_registration_path %></div>
+					<div class="nav-item col-md-1 pull-right" ><%= link_to 'Statystyki', statistics_index_path %></div>
+					<div class="nav-item col-md-1 pull-right" ><%= link_to 'Wydatki', lists_path %></div>
+				<% else %>
+					<div class="nav-item col-md-1 pull-right" ><%= link_to 'Rejestracja', new_user_registration_path %></div>
+					<div class="nav-item col-md-1 pull-right" ><%= link_to 'Zaloguj', new_user_session_path %></div>
+				<% end %>
+					<div class="nav-item col-md-1 pull-left" ><%= link_to 'Home', root_path %></div>
+			</div>
+		</div>
+
+		<div class="content">
+			<div class="infos">
+				<p class="notice"><%= flash[:notice]  %></p>
+				<p class="alert"><%= flash[:alert] %></p>
+			</div>
+
+			<%= yield %>
+
+		</div>
+
+		<div class="footer">
+		</div>
+	</div>
+
+</body>
+</html>

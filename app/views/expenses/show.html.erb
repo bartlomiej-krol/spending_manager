@@ -1,0 +1,26 @@
+
+	<div class="col-md-12">		
+		<div class="col-md-6"><h3><strong><%= @expense.title %></strong> (<%= @list.name %>)</h3></div>
+		<div class="col-md-6"><%= link_to 'Edytuj', edit_list_expense_path(:id => @expense.id, :list_id => @list.id) %></div>
+	</div>
+	<div class="col-md-12">		
+		<div class="col-md-2">Kwota</div>
+		<div class="col-md-2">Status</div>
+		<div class="col-md-2">Data</div>
+		<div class="col-md-6">Opis</div>
+	</div>
+	<div class="col-md-12">
+		<div class="col-md-2"><%= @expense.amount %></div>
+		<div class="col-md-2"><%= @expense.status %></div>
+		<div class="col-md-2">
+	        <% if @expense.date.present? %>
+	        <%= @expense.date.strftime("%Y-%m-%d") %>
+	        <% end %>
+    	</div>
+		<div class="col-md-6"><%= @expense.description %></div>
+	</div>
+
+
+
+<hr>
+<%= link_to '<-Back', list_path(:id => @list.id) %>
