@@ -42,6 +42,7 @@
           <li class=""><%= link_to 'Wydatki', lists_path, :class => (current_page?(lists_path) ? "selected" : "")  %></li>
           <li class=""><%= link_to 'Statystyki', statistics_index_path, :class => (current_page?(statistics_index_path) ? "selected" : "")  %></li>
           <li class=""><i class="icon-user"></i><%= link_to 'Profil', edit_user_registration_path, :class => (current_page?(edit_user_registration_path) ? "selected" : "")  %></li>
+          <li class=""><i class="icon-book"></i><%= link_to "(0)", reminders_path, :class => (current_page?(reminders_path) ? "selected" : "")  %></li>
           <li class="last"><%= link_to 'Wyloguj', destroy_user_session_path, :method => :delete %></li>
         <% else %>
           <li class=""><%= link_to 'Rejestracja', new_user_registration_path, :class => (current_page?(new_user_registration_path) ? "selected" : "")  %></li>
