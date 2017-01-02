@@ -15,6 +15,6 @@ class ApplicationController < ActionController::Base
 	  		reminder.reminder_status = 'pending'
 	  		reminder.save
 	  	end
-	  	@user_reminders = current_user.expenses.where("`reminder_status` = 'pending'")
+	  	@user_reminders = current_user.expenses.where("reminder_status = 'pending'")
   	end
 end
