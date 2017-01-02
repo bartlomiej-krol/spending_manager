@@ -8,9 +8,9 @@ class ListsController < ApplicationController
 
 	def show
 		@list = List.find(params[:id])
-		@list_paid_expenses = @list.expenses.where("`status` = 'paid'").order('`date` DESC')
-		@list_not_paid_expenses = @list.expenses.where("`status` = 'not-paid'").order('`date` ASC')
-		@list_other_expenses = @list.expenses.where("`status` IS NULL OR `status` NOT IN ('paid', 'not-paid')").order('`date` ASC')
+		@list_paid_expenses = @list.expenses.where("status = 'paid'").order('date DESC')
+		@list_not_paid_expenses = @list.expenses.where("status = 'not-paid'").order('date ASC')
+		@list_other_expenses = @list.expenses.where("status IS NULL OR status NOT IN ('paid', 'not-paid')").order('date ASC')
 	end
 
 	def new
