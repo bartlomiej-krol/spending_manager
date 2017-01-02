@@ -2,7 +2,7 @@ class ExpensesController < ApplicationController
 	before_filter :authorize_signed_in
 
 	def reminders
-	  	@user_reminders_show = current_user.expenses.where("`status` = 'not-paid' AND (`reminder_status` = 'pending' OR `reminder_status` = 'remindered') AND `date` <= '#{DateTime.now}'").order('`date` DESC')
+	  	@user_reminders_show = current_user.expenses.where("status = 'not-paid' AND (reminder_status = 'pending' OR reminder_status = 'remindered') AND date <= '#{DateTime.now}'").order('date DESC')
 	end
 
 
