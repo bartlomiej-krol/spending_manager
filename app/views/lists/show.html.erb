@@ -5,10 +5,10 @@
  
 
 <%= link_to 'Nowa pozycja', new_list_expense_path(:list_id => @list.id ), :class => 'button' %>
-<hr>
 
   <% if !@list_paid_expenses.empty? %>
   <div class="col-md-12">
+    <hr>
     <h5><strong>Opłacone</strong></h5>
     <div class="col-md-12">
       <div class="col-md-2">Nazwa</div>
@@ -47,8 +47,8 @@
 
 
   <% if !@list_not_paid_expenses.empty? %>
-<hr>
   <div class="col-md-12">
+    <hr>
     <h5><strong>Nieopłacone</strong></h5>
     <div class="col-md-12">
       <div class="col-md-2">Nazwa</div>
@@ -88,8 +88,8 @@
 
 
   <% if !@list_other_expenses.empty? %>
-<hr>
   <div class="col-md-12">
+    <hr>
     <h5><strong>Inne</strong></h5>
     <div class="col-md-12">
       <div class="col-md-2">Nazwa</div>

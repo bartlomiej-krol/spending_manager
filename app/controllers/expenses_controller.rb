@@ -60,6 +60,15 @@ class ExpensesController < ApplicationController
 			render 'edit'
 		end
 	end
+
+	def destroy
+		@user = User.find(current_user.id)
+		@list = @user.lists.find(params[:list_id])
+	  	@expense = @list.expenses.find(params[:id])
+	  	@expense.destroy
+	  	@list.save
+	  	redirect_to @list
+	end
 	 
 private
 	def expense_params

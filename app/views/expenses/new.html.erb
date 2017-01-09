@@ -3,8 +3,21 @@
 <%= form_for :expense, url: list_expenses_path do |f| %>
   <p>
     <%= f.label :Nazwa %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, :list => "names_list" %>
   </p>
+  <datalist id="names_list">
+    <option value="Zakupy">
+    <option value="Prąd">
+    <option value="Gaz">
+    <option value="Kebab">
+    <option value="Jedzenie">
+    <option value="Piwo">
+    <option value="Zapiekanka">
+    <option value="Kosmetyki">
+    <option value="Chleb">
+    <option value="Ksero">
+    <option value="Drozdżówka">
+  </datalist>
   <p>
     <%= f.label :Kwota %><br>
     <%= f.text_field :amount %>
