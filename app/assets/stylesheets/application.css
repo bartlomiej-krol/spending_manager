@@ -68,3 +68,7 @@ input[type="submit"]:hover, .button:hover {
     background-color: #79B479;
     color: white;
 } 
+
+.select-date select {
+    width: 30%;
+}

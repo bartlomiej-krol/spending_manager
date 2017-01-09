@@ -1,7 +1,62 @@
 <h1>Statystyki</h1>
+	<%= form_tag(statistics_index_path) do |f|%>
+		<div class="col-md-12">
+			<div class="col-md-12">
+				<div class="col-md-4">
+					<%= label_tag(:date_from, "Data od:") %>
+				</div>
+				<div class="col-md-4">
+					<%= label_tag(:date_to, "Data do:") %>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="col-md-4 select-date">
+					<%= date_select :date_from, '', default: (Date.today - 7.days) %>
+				</div>
+				<div class="col-md-4 select-date">
+					<%= date_select :date_to, '', selected: Date.today %>
+				</div>
+				<div class="col-md-4">
+					<%= submit_tag("Sprawdź") %>
+				</div>
+			</div>
+		</div>
+	<% end %>	
+
+	<% if @custom_statistics %>
+			<div class="col-md-12">	
+				<hr>
+				<h3>Własny zakres:</h3>
+				<div class="col-md-2">		
+					<div class="coll-md-12">
+						Suma wydatków:
+					</div>	
+					<div class="coll-md-12">
+						<%= number_with_precision(@custom_sum, precision: 2) %> PLN
+					</div>
+				</div>
+				<div class="col-md-5">		
+					<div class="coll-md-12">
+						Średnie wydatki (dziennie):
+					</div>	
+					<div class="coll-md-12">
+						<%= number_with_precision(@custom_aved, precision: 2) %> PLN
+					</div>
+				</div>
+				<div class="col-md-5">		
+					<div class="coll-md-12">
+						Średnie wydatki (pojedyńczy wydatek):
+					</div>	
+					<div class="coll-md-12">
+						<%= number_with_precision(@custom_ave, precision: 2) %> PLN
+					</div>
+				</div>
+			</div>
+	<% end %>
 
 		<div class="col-md-12">
-			<h4>Statystyki ogólne:</h4>
+			<hr>
+			<h3>Statystyki ogólne:</h3>
 			<div class="col-md-4">		
 				<div class="coll-md-12">
 					Łączna suma wydatków z calego okresu:
@@ -20,8 +75,10 @@
 			</div>
 		</div>
 		<div class="col-md-12">
-			<h4>Statystyki okresowe:</h4>
-			<div class="col-md-12">		
+			<hr>
+			<h3>Statystyki okresowe:</h3>
+			<div class="col-md-12">	
+				<hr>	
 				<h5><strong>7</strong> ostatnich dni:</h5>
 				<div class="col-md-2">		
 					<div class="coll-md-12">
@@ -50,6 +107,7 @@
 			</div>
 
 			<div class="col-md-12">	
+				<hr>
 				<h5><strong>30</strong> ostatnich dni:</h5>
 				<div class="col-md-2">		
 					<div class="coll-md-12">
@@ -78,6 +136,7 @@
 			</div>
 
 			<div class="col-md-12">	
+				<hr>
 				<h5><strong>Ten miesiąc</strong></h5>
 				<div class="col-md-2">		
 					<div class="coll-md-12">

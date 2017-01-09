@@ -2,6 +2,19 @@ class StatisticsController < ApplicationController
 	before_filter :authorize_signed_in
 
 	def index
+		@custom_sum = nil;
+		@custom_aved = nil;
+		@custom_ave = nil;
+		@custom_statistics = false;
+
+		if params[:date_from] && params[:date_to]
+			@custom_statistics = true;
+			date_from = Date.civil(*params[:date_from].sort.map(&:last).map(&:to_i))
+			date_to = Date.civil(*params[:date_to].sort.map(&:last).map(&:to_i))
+			@custom_sum = current_user.expenses.where("status='paid' AND date >= '#{date_from}' AND date <= '#{date_to}' AND amount > 0.0").sum(:amount)
+			@custom_aved = current_user.expenses.where("status='paid' AND date >= '#{date_from}' AND date <= '#{date_to}' AND amount > 0.0").sum(:amount) / ((date_to - date_from).to_i + 1)
+			@custom_ave = current_user.expenses.where("status='paid' AND date >= '#{date_from}' AND date <= '#{date_to}' AND amount > 0.0").average(:amount)
+		end
 		only_expenses = true
 		if only_expenses then
 			@total_sum = current_user.expenses.where("status='paid' AND amount > 0.0").sum(:amount)

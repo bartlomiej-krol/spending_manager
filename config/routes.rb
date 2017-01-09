@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :expenses 
   end
   get 'statistics/index'
+  post 'statistics/index'
   get 'reminders' => 'expenses#reminders'
   get 'welcome/index'
   root 'welcome#index'

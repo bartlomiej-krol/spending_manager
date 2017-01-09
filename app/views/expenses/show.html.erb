@@ -2,9 +2,11 @@
 <%= link_to '< Wstecz', list_path(:id => @list.id), :class => "button" %>
 
 	<div class="col-md-12">		
-		<div class="col-md-6"><h3><strong><%= @expense.title %></strong> (<%= @list.name %>)</h3></div>
-		<div class="col-md-3"><%= link_to 'Edytuj', edit_list_expense_path(:id => @expense.id, :list_id => @list.id), :class => 'button' %></div>
-		<div class="col-md-3"><%= link_to 'Usuń', list_expense_path(:id => @expense.id, :list_id => @list.id), method: :delete, :class => 'button', :data=>{:confirm => 'Czy na pewno chczesz usuąć?'}  %></div>
+		<div class="col-md-6"><h3><strong><%= @expense.title %></strong> (<%= @list.name %>)</h3></div>	
+		<div class="col-md-3">
+			<div class="col-md-4"><%= link_to 'Edytuj', edit_list_expense_path(:id => @expense.id, :list_id => @list.id), :class => 'button' %></div>
+			<div class="col-md-4"><%= link_to 'Usuń', list_expense_path(:id => @expense.id, :list_id => @list.id), method: :delete, :class => 'button', :data=>{:confirm => 'Czy na pewno chczesz usuąć?'}  %></div>
+		</div>
 	</div>
 	<div class="col-md-12">		
 		<div class="col-md-3">Kwota</div>
