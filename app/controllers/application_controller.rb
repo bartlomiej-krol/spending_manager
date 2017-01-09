@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   private
 	def checkReminders
-	  	@reminders = Expense.where("status = 'not-paid' AND (reminder_status IS NULL OR reminder_status = 'not-remindered') AND date <= '#{DateTime.now}'::date")
+	  	@reminders = Expense.where("status = 'not-paid' AND (reminder_status IS NULL OR reminder_status = 'not-remindered') AND date <= '#{DateTime.now}'")
 	  	@reminders.each do |reminder|
 	  		reminder.reminder_status = 'pending'
 	  		reminder.save

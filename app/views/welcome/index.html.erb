@@ -1,4 +1,32 @@
 
+<section class="stack-fixed about-slider-wrap">
+    <div class="slider-ui">
+      <span class="control prev"></span>
+      <span class="control next"></span>
+    </div>
+    
+    <ul class="about-slider clearfix viewer">
+      <li class="slider-item">
+        <img class="slide-img" src="/img/slide1.jpg" alt="" />
+      </li>
+      <li class="slider-item">
+        <img class="slide-img" src="/img/slide2.jpg" alt="" />
+      </li>
+      <li class="slider-item">
+        <img class="slide-img" src="/img/slide3.jpg" alt="" />
+      </li>
+      <li class="slider-item">
+        <img class="slide-img" src="/img/slide4.jpg" alt="" />
+      </li>
+      <li class="slider-item">
+        <img class="slide-img" src="/img/slide5.jpg" alt="" />
+      </li>
+      
+    </ul>
+    
+    <ul class="indic"></ul>
+    
+</section>
 <h1>
 <% if user_signed_in? %>
 Witaj <span class="colored"><%= current_user.name %></span>
@@ -9,6 +37,6 @@ Witaj <span class="colored"><%= current_user.name %></span>
 <hr>
 
 <% else %>
-Nie jesteś zalogowany! <%= link_to "Zaloguj się", new_user_session_path %> <span class="colored">lub</span> <%= link_to "stwórz nowe konto", new_user_registration_path %>.
+Nie jesteś zalogowany! <span class="colored"><%= link_to "Zaloguj się", new_user_session_path %></span> lub <span class="colored"><%= link_to "stwórz nowe konto", new_user_registration_path %></span>.
 <% end %>
 </h1>

@@ -37,10 +37,10 @@
       <nav class="main-nav">
       
         <ul>
-          <li class="first"><%= link_to 'Home', root_path, :class => (current_page?(root_path) ? "selected" : "") %></li>
+          <li class="first"><%= link_to 'Główna', root_path, :class => (current_page?(root_path) ? "selected" : "") %></li>
         <% if user_signed_in? %>
-          <li class=""><%= link_to 'Wydatki', lists_path, :class => (current_page?(lists_path) ? "selected" : "")  %></li>
-          <li class=""><%= link_to 'Statystyki', statistics_index_path, :class => (current_page?(statistics_index_path) ? "selected" : "")  %></li>
+          <li class=""><i class="icon-list-alt"></i><%= link_to 'Listy wydatków', lists_path, :class => (current_page?(lists_path) ? "selected" : "")  %></li>
+          <li class=""><i class="icon-eye-open"><%= link_to 'Statystyki', statistics_index_path, :class => (current_page?(statistics_index_path) ? "selected" : "")  %></li>
           <li class=""><i class="icon-user"></i><%= link_to 'Profil', edit_user_registration_path, :class => (current_page?(edit_user_registration_path) ? "selected" : "")  %></li>
           <li class=""><i class="icon-book"></i><%= link_to "(#{@user_reminders.count})", reminders_path, :class => (current_page?(reminders_path) ? "selected" : "")  %></li>
           <li class="last"><%= link_to 'Wyloguj', destroy_user_session_path, :method => :delete %></li>
@@ -53,35 +53,7 @@
       </nav><!-- end .main-nav -->
       
     </header>
- <!--       <section class="stack-fixed about-slider-wrap">
-    <div class="slider-ui">
-      <span class="control prev"></span>
-      <span class="control next"></span>
-    </div>
-    
-    <ul class="about-slider clearfix viewer">
-      <li class="slider-item">
-        <img class="slide-img" src="/img/slide1.jpg" alt="" />
-      </li>
-      <li class="slider-item">
-        <img class="slide-img" src="/img/slide2.jpg" alt="" />
-      </li>
-      <li class="slider-item">
-        <img class="slide-img" src="/img/slide3.jpg" alt="" />
-      </li>
-      <li class="slider-item">
-        <img class="slide-img" src="/img/slide4.jpg" alt="" />
-      </li>
-      <li class="slider-item">
-        <img class="slide-img" src="/img/slide5.jpg" alt="" />
-      </li>
-      
-    </ul>
-    
-    <ul class="indic"></ul>
-    
-  </section> -->
-        <article class="main" role="main">
+<article class="main" role="main">
 <div class="home-hero">
   <div class="top-mast">
 
