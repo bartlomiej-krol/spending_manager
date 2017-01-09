@@ -1,10 +1,11 @@
-<h3><strong><%= @list.name %></strong></h3>
 
-
+<%= link_to "< Wstecz", lists_path, :class => 'button' %>
+<br>
+<h1><i class="icon-list-alt"></i> <strong><%= @list.name %></strong></h1>
  
 
-<%= link_to 'Nowa pozycja', new_list_expense_path(:list_id => @list.id ) %>
-
+<%= link_to 'Nowa pozycja', new_list_expense_path(:list_id => @list.id ), :class => 'button' %>
+<hr>
 
   <% if !@list_paid_expenses.empty? %>
   <div class="col-md-12">
@@ -45,8 +46,8 @@
   <% end %>
 
 
-
   <% if !@list_not_paid_expenses.empty? %>
+<hr>
   <div class="col-md-12">
     <h5><strong>Nieopłacone</strong></h5>
     <div class="col-md-12">
@@ -87,6 +88,7 @@
 
 
   <% if !@list_other_expenses.empty? %>
+<hr>
   <div class="col-md-12">
     <h5><strong>Inne</strong></h5>
     <div class="col-md-12">
@@ -124,5 +126,3 @@
   </div>
   <% end %>
 
-
-<%= link_to '<-Back', lists_path %>

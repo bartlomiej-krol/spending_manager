@@ -1,26 +1,29 @@
 
+<%= link_to '< Wstecz', list_path(:id => @list.id), :class => "button" %>
+
 	<div class="col-md-12">		
 		<div class="col-md-6"><h3><strong><%= @expense.title %></strong> (<%= @list.name %>)</h3></div>
-		<div class="col-md-6"><%= link_to 'Edytuj', edit_list_expense_path(:id => @expense.id, :list_id => @list.id) %></div>
+		<div class="col-md-6"><%= link_to 'Edytuj', edit_list_expense_path(:id => @expense.id, :list_id => @list.id), :class => 'button' %></div>
 	</div>
 	<div class="col-md-12">		
-		<div class="col-md-2">Kwota</div>
-		<div class="col-md-2">Status</div>
-		<div class="col-md-2">Data</div>
-		<div class="col-md-6">Opis</div>
+		<div class="col-md-3">Kwota</div>
+		<div class="col-md-3">Status</div>
+		<div class="col-md-3">Data</div>
 	</div>
 	<div class="col-md-12">
-		<div class="col-md-2"><%= @expense.amount %></div>
-		<div class="col-md-2"><%= @expense.status %></div>
-		<div class="col-md-2">
+		<div class="col-md-3"><%= @expense.amount %></div>
+		<div class="col-md-3"><%= @expense.status %></div>
+		<div class="col-md-3">
 	        <% if @expense.date.present? %>
 	        <%= @expense.date.strftime("%Y-%m-%d") %>
 	        <% end %>
     	</div>
-		<div class="col-md-6"><%= @expense.description %></div>
+	</div>
+	<div class="col-md-12">
+		<div class="col-md-9">Opis</div>
+		<div class="col-md-9"><%= @expense.description %></div>
 	</div>
 
 
 
 <hr>
-<%= link_to '<-Back', list_path(:id => @list.id) %>

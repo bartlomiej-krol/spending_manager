@@ -47,13 +47,24 @@ body {
     color: #EE0923;
 } 
 
-.button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
+input[type="submit"], .button {
+    background-color: #79B429; /* Green */
+    color: white !important;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+    display: table-cell;
+    vertical-align: middle;
+    border-radius: 5px;
+    font-weight: bold;
 }
+.button {
+    padding: 3px;
+}
+
+.button a {
+    color: white;
+}
+
+input[type="submit"]:hover, .button:hover {
+    background-color: #79B479;
+    color: white;
+} 
